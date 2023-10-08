@@ -15,6 +15,12 @@ RUN git clone --depth 1 --branch 1.5.1 https://github.com/raspberrypi/pico-sdk $
     cd $PICO_SDK_PATH && \
     git submodule update --init
 
+# Pico Extras
+ENV PICO_EXTRAS_PATH=/usr/share/pico_extras
+RUN git clone --depth 1 --branch sdk-1.5.1 https://github.com/raspberrypi/pico-extras.git $PICO_EXTRAS_PATH && \
+    cd $PICO_EXTRAS_PATH && \
+    git submodule update --init
+
 # Picotool installation
 RUN git clone --depth 1 --branch 1.1.2 https://github.com/raspberrypi/picotool.git /home/picotool && \
     cd /home/picotool && \
